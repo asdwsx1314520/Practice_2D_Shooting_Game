@@ -1,9 +1,23 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class White : MonoBehaviour
 {
     #region 練習區域 - 在此區域內練習
-    
+    public Transform bullet;
+    public Transform tag_bullet;
+
+    public AudioSource audio;
+    public AudioClip shooting;
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            audio.PlayOneShot(shooting);
+            Instantiate(bullet, tag_bullet.position, tag_bullet.rotation);
+        }
+    }
     #endregion
 
     #region KID 區域 - 不要偷看 @3@
